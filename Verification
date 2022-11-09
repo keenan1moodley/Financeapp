@@ -1,0 +1,20 @@
+public class verification {
+
+    private int bD;
+    private int nIN;
+    private int verify;
+    private int oldEnough;
+
+    public verification(int bD,int nIN, int verify, int oldEnough){
+        this.bD = bD;
+        this.nIN = nIN;
+        this.verify = verify;
+        this.oldEnough = oldEnough;
+    }
+
+   // public void verifybD(){
+      //  if(verify >= n ){
+
+       // }
+   // }
+}
