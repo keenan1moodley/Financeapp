@@ -1,0 +1,70 @@
+public class clientAccount {
+
+    private int amount;
+    private String fName;
+    private String lName;
+    private String eA;
+    private String pN;
+    private String fullN;
+    private String title;
+    private String passWord;
+    private int bankId;
+
+    public clientAccount(String fName, String lName, String eA,String pN, String fullN, int amount, String title, String passWord, int bankId){
+        this.fullN = fullN;
+        this.fName = fName;
+        this.lName = lName;
+        this.eA = eA;
+        this.pN = pN;
+        this.amount = amount;
+        this.title = title;
+        this.passWord = passWord;
+        this.bankId = bankId;
+
+    }
+
+
+    public int getAmount(){
+        return amount;
+    }
+
+    public void setAmount(){
+
+    }
+
+    public void printBankId(){
+        System.out.println("Your bank ID is: " + bankId);
+    }
+
+
+    public void checkBalance() {
+        System.out.println("Your balance is: " + amount + " Euros");
+
+    }
+
+    public void transferFunds(int accountNumber,int transferAmount){
+        System.out.println("You have successfully transfered " + transferAmount + " Euros to account number " + accountNumber);
+        amount -= transferAmount;
+        System.out.println("Your current balance is now: " + amount + " Euros.");
+    }
+
+    public void payments(){
+        System.out.println("Payments");
+    }
+    public void createBudget(){
+        System.out.println("Let's get started with your monthly budget");
+
+    }
+    public void invest(){
+        System.out.println("Welcome to investments");
+        System.out.println(
+                """
+                1. Login
+                2. Register
+                3. Back to main menu
+             """
+        );
+
+
+    }
+}
