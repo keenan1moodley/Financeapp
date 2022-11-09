@@ -1,0 +1,31 @@
+public class Investmentaccount {
+
+    private int amount;
+    private String fName;
+    private String lName;
+    private String eA;
+    private String pN;
+    private String fullN;
+    private String title;
+    private String passWord;
+    private int bankId;
+
+    public Investmentaccount(String fName, String lName, String eA,String pN, String fullN, int amount, String title, String passWord, int bankId){
+        this.fullN = fullN;
+        this.fName = fName;
+        this.lName = lName;
+        this.eA = eA;
+        this.pN = pN;
+        this.amount = amount;
+        this.title = title;
+        this.passWord = passWord;
+        this.bankId = bankId;
+    }
+    public void logIn(){
+
+    }
+    public void register(){
+
+    }
+
+}
