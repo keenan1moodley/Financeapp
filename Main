@@ -1,0 +1,163 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        String a = "Mr";
+        String b = "Mrs";
+        String c = "Miss";
+        int isOldEnough = 04;
+        int amount = 300;
+        int bankId = (int)(Math.random() * 100000001);
+
+        Scanner uI = new Scanner(System.in);
+        System.out.println("\n\n");
+        System.out.println("Welcome to Global finance \n\n\n");
+        System.out.println("Please enter formal title |Mr / Mrs / Miss|: ");
+        String title = uI.nextLine();
+        System.out.println("Please enter your first name: ");
+        String fName = uI.nextLine();
+        System.out.println("Please enter your second name:  ");
+        String lName = uI.nextLine();
+
+        System.out.println("");
+        System.out.println("Please enter your date of birth: ");
+        String age = uI.nextLine();
+        String age1 = age.substring(0,2);
+        int verify = Integer.parseInt((String)age1);
+
+        String fullN= lName + ", " + fName;
+
+        if (verify <= isOldEnough ){
+            System.out.println("You have been given authorisation to proceed \n");
+
+            System.out.println("Please create a new password that is 8-15 characters long");
+            String passWord = uI.nextLine();
+
+            if (title.equals(a)) {
+                System.out.println("Welcome to the world's leading banking system Mr" + " " + lName);
+            }
+            else if (title.equals(b)){
+                System.out.println("Welcome to the world's leading banking system Mrs" + " " + lName);
+            }
+            else{
+                System.out.println("Welcome to the world's leading banking system Miss" + " " + lName);
+            }
+            System.out.println("\n");
+            System.out.println("Just a few more steps to create your account \n");
+            System.out.println("Please enter your email address:");
+            String eA = uI.nextLine();
+
+            System.out.println("Please enter your phone number:");
+            String pN = uI.nextLine();
+
+            System.out.println("\nYour details are: \n" + fullN + "\n" + eA + "\n" + pN + "\n");
+            System.out.println("Your bank Id is: " + bankId + "\n");
+
+            System.out.println("Please enter the amount of money desired to deposit");
+            System.out.println(
+                    """
+                    **Minimum amount is 300 Euro**        
+                            1. 300 Euro
+                            2. 500 Euro
+                            3. 800 Euro
+                            4. 1000 Euro
+                            5. Custom amount\s
+                            """
+            );
+            int choice1 = uI.nextInt();
+            uI.nextLine();
+
+            if (choice1 == 1){
+                System.out.println("You now have 300 Euros in your account.");
+                amount += 0;
+            } else if (choice1 == 2) {
+                System.out.println("You now have 500 Euros in your account.");
+                amount += 200;
+            } else if (choice1 == 3) {
+                System.out.println("You now have 800 Euros in your account.");
+                amount += 500;
+            } else if (choice1 == 4) {
+                System.out.println("You now have 1000 Euros in your account.");
+                amount += 700;
+            }
+            else {
+                System.out.println("Enter custom amount:");
+                amount = uI.nextInt();
+            }
+
+            clientAccount a1 = new clientAccount(fName,lName,eA,pN,fullN,amount,title, passWord,bankId);
+
+            uI.nextLine();
+            System.out.println("What would you like to do?\n\n");
+            System.out.println(
+                    """
+                            1.  Check balance    
+                            2.  Transfer funds
+                            3.  Payments\s
+                            4.  Monthly budget
+                            5.  Invest
+                            6.  Create new account
+                            """
+
+            ); int choice2 = uI.nextInt();
+            uI.nextLine();
+            if (choice2 == 1){
+                a1.setAmount();
+                a1.checkBalance();
+                a1.printBankId();
+
+            }
+            else if(choice2 == 2){
+                System.out.println("Please enter your password first:");
+                String p1 = uI.nextLine();
+                if(p1.equals(passWord)){
+                    System.out.println("Correct password!");
+                    System.out.println("Enter the receivers account type: Personal/Savings/Investment ");
+                    String accountType = uI.nextLine();
+                    System.out.println("Enter the receivers account number:");
+                    int accountNumber = uI.nextInt();
+                    System.out.println("How much would you like to transfer:");
+                    int transferAmount = uI.nextInt();
+                    if (transferAmount > amount){
+                        System.out.println("Invalid amount!\n Please enter a valid amount!");
+                    }else {
+                        a1.transferFunds(accountNumber, transferAmount);
+                    }
+
+                }else {
+                    System.out.println("Password is incorrect!\n Process terminated!");
+                }
+            }
+            else if(choice2 == 3){
+                a1.payments();
+
+            }
+            else if(choice2 == 4){
+                a1.createBudget();
+            }
+            else if(choice2 == 5){
+                a1.invest();
+                int iMc = uI.nextInt();
+                switch (iMc){
+                    case 1 :
+
+                }
+            }
+            else{
+
+            }
+        }else {
+            System.out.println("You have not been given authorisation to proceed \n");
+        }
+
+
+
+
+
+
+
+
+
+    }
+}
